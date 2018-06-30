@@ -1,0 +1,39 @@
+@import '../../styles.less';
+// mobile
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about__Photo {
+    // flex: 1;
+    width: 304px;
+    height: 171px;
+    background-color: red;
+}
+
+.about__Text {
+    flex: 1;
+}
+
+// tablet
+@media only screen and(min-width:600px) {
+    .about {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .about__Photo {
+        margin-right: @padding;
+    }
+}
+
+// desktop
+@media only screen and (min-width: 768px) {
+    .about {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}

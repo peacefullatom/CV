@@ -1,0 +1,55 @@
+@import '../../styles.less';
+// mobile
+.wrapperComponent {
+    display: flex;
+    padding: @padding;
+    user-select: none;
+}
+
+.wrapperComponent__Line {
+    display: none;
+}
+
+.wrapperComponent__Wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.wrapperComponent__Title {
+    padding: @padding;
+    color: @color0;
+    background-color: @color4;
+    text-transform: uppercase;
+}
+
+.wrapperComponent__Content {
+    padding: @padding;
+}
+
+// tablet
+@media only screen and(min-width:600px) {
+    //
+}
+
+// desktop
+@media only screen and (min-width: 768px) {
+    .wrapperComponent {
+        flex-direction: column;
+    }
+    .wrapperComponent__Line {
+        display: initial;
+        height: 2px;
+        background-color: @color0;
+    }
+    .wrapperComponent__Wrapper {
+        flex-direction: row;
+    }
+    .wrapperComponent__Title {
+        padding-top: @padding * 3;
+        background-color: @colorDefault;
+    }
+    .wrapperComponent__Content {
+        flex: 1;
+    }
+}
