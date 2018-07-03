@@ -5,13 +5,23 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { WrapperDirective } from './wrapper.directive';
 import { WrapperComponent } from './wrapper/wrapper.component';
+import { TechnicalSkillsComponent } from './technical-skills/technical-skills.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { EducationComponent } from './education/education.component';
+import { ReadingsComponent } from './readings/readings.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     WrapperDirective,
-    WrapperComponent
+    WrapperComponent,
+    TechnicalSkillsComponent,
+    ExperienceComponent,
+    EducationComponent,
+    ReadingsComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule

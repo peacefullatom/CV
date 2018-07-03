@@ -1,0 +1,11 @@
+<div *appWrapper="title;folded:folded">
+  <div *ngFor="let item of experiences;index as i" class="experience">
+    <div class="experience__Date">{{convertDate(item.start)}} - {{previousDate(i)}}</div>
+    <div class="experience__Info">
+      <div class="experience__Role">{{item.role}}</div>&nbsp;-&nbsp;
+      <div class="experience__Company">{{item.company}}</div>
+    </div>
+    <div class="experience__Technologies">{{glueTechnologies(item.technologies)}}</div>
+    <div class="experience__Description">{{item.description}}</div>
+  </div>
+</div>

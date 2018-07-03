@@ -1,0 +1,12 @@
+<div *appWrapper="title;folded:folded">
+  <div *ngFor="let item of readings" class="readings">
+    <div class="readings__Info">
+      <div class="readings__Name">{{item.name}}</div>
+      <span *ngIf="item.link">&nbsp;-&nbsp;</span>
+      <div class="readings__Link">
+        <a href={{item.link}} target="_blank">{{removePathFromURL(item.link)}}</a>
+      </div>
+    </div>
+    <div class="readings__Description">{{item.description}}</div>
+  </div>
+</div>

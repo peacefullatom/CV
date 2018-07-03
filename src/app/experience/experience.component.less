@@ -1,0 +1,62 @@
+@import '../../styles.less';
+@border: 8px;
+// mobile
+.experience:last-child {
+    border-bottom: none;
+}
+
+.experience:first-child {
+    margin-top: 16px;
+}
+
+.experience {
+    position: relative;
+    padding-bottom: @border;
+    margin-bottom: 16px;
+    border-bottom: 2px solid @color0;
+}
+
+.experience__Date {
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+}
+
+.experience__Info {
+    display: flex;
+    flex-direction: row;
+    padding-top: 22px;
+}
+
+.experience__Role,
+.experience__Company {
+    font-size: 16px;
+}
+
+.experience__Role {
+    font-weight: bold;
+}
+
+.experience__Company {
+    font-style: italic;
+}
+
+.experience__Technologies {
+    padding-top: @border;
+    font-size: 14px;
+}
+
+.experience__Description {
+    padding-top: @border;
+    font-size: 18px;
+}
+
+// tablet
+@media only screen and(min-width:600px) {
+    //
+}
+
+// desktop
+@media only screen and (min-width: 768px) {
+    //
+}
