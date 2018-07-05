@@ -10,8 +10,8 @@ const YEARS = "year(s)";
 const MINUTE = 1e3 * 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
-const MONTH = DAY * 31;
-const YEAR = MONTH * 12;
+const MONTH = DAY * ((28 + 31) / 2);
+const YEAR = DAY * 365;
 
 export interface Skill {
   name: string;

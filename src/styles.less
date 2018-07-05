@@ -1,12 +1,24 @@
 @color0: #2E65A7;
 @color1: #4C82C2;
-@color2: #6F9FD8;
+@color2: #6F9FD8; // base color
 @color3: #9ABEEA;
 @color4: #CDE1F8;
 @colorDefault: #FFFFFF;
 @padding: 10px;
+@defaultFontFamily: "segoe ui", "lucida sans unicode", "lucida grande", lucida, sans-serif;
 // default styles
 body {
     margin: 0;
     padding: 0;
+    font-family: @defaultFontFamily;
+}
+
+a {
+    color: @color0;
+    padding: 2px 3px;
+}
+
+a:hover {
+    color: @color4;
+    background: @color1;
 }
