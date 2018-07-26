@@ -20,7 +20,7 @@ export class ReadingsComponent implements OnInit {
     {
       name: "Rangle's Angular Training Book",
       link: "https://angular-2-training-book.rangle.io",
-      description: "One of the best sources about Angular (and not only!) available online. Includes: set of best practices; ready to use solutions; basic recommendations; etc. Written in a very understandable manner, so, the course can be easily understood by novice, meanwhile contains there are a lot of professional tips."
+      description: "One of the best sources about Angular (and not only!) available online. Includes: set of best practices; ready to use solutions; basic recommendations; etc. Written in a very understandable manner, so, the course can be easily understood by novice, but also contains a lot of professional tips."
     },
     {
       name: "Improved Redux type safety with typescript 2.8",

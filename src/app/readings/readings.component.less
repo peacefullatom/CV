@@ -1,52 +1,30 @@
 @import '../../styles.less';
-@import '../../styles.less';
 @border: 8px;
-// mobile
-.readings:last-child {
-    border-bottom: none;
-}
-
-.readings:first-child {
-    margin-top: 16px;
-}
-
 .readings {
     position: relative;
     padding-bottom: @border;
     margin-bottom: 16px;
     border-bottom: 2px solid @color0;
-}
-
-.readings__Info {
-    display: flex;
-    flex-direction: row;
-    padding-top: 22px;
-}
-
-.readings__Name,
-.readings__Link {
-    font-size: 16px;
-}
-
-.readings__Name {
-    font-weight: bold;
-}
-
-.readings__Link {
-    // font-style: italic;
-}
-
-.readings__Description {
-    padding-top: @border;
-    font-size: 18px;
-}
-
-// tablet
-@media only screen and(min-width:600px) {
-    //
-}
-
-// desktop
-@media only screen and (min-width: 768px) {
-    //
+    &:last-child {
+        border-bottom: none;
+    }
+    &:first-child {
+        margin-top: 16px;
+    }
+    &__Info {
+        display: flex;
+        flex-direction: row;
+        padding-top: 22px;
+    }
+    &__Name {
+        font-weight: bold;
+    }
+    &__Name,
+    &__Link {
+        font-size: 16px;
+    }
+    &__Description {
+        padding-top: @border;
+        font-size: 18px;
+    }
 }

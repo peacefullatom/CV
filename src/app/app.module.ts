@@ -10,6 +10,10 @@ import { ExperienceComponent } from './experience/experience.component';
 import { EducationComponent } from './education/education.component';
 import { ReadingsComponent } from './readings/readings.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { ClockComponent } from './gallery/clock/clock.component';
+import { ClockCellComponent } from './gallery/clock/clock-cell/clock-cell.component';
+import { TreeOfLifeComponent } from './gallery/tree-of-life/tree-of-life.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { GalleryComponent } from './gallery/gallery.component';
     ExperienceComponent,
     EducationComponent,
     ReadingsComponent,
-    GalleryComponent
+    GalleryComponent,
+    ClockComponent,
+    ClockCellComponent,
+    TreeOfLifeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule

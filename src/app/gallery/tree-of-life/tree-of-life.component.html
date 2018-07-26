@@ -1,0 +1,25 @@
+<div class="treeOfLife">
+  <div class="treeOfLife__Line"></div>
+  <div class="treeOfLife__Wrapper" *ngFor="let entry of entries" [ngClass]="!entry.private?'treeOfLife__Wrapper_Right':'treeOfLife__Wrapper_Left'">
+    <div class="treeOfLife__Connector" *ngIf="!entry.private">
+      <div class="treeOfLife__Link"></div>
+      <div class="treeOfLife__Icon treeOfLife__Icon_Right">
+        <i class="treeOfLife__FA fa {{entry.icon}}"></i>
+      </div>
+    </div>
+    <div class="treeOfLife__Entry" [ngClass]="!entry.private?'treeOfLife__Entry_Right':'treeOfLife__Entry_Left'">
+      <div class="treeOfLife__Mark" [ngClass]="!entry.private?'treeOfLife__Mark_Right':'treeOfLife__Mark_Left'">
+        <div class="treeOfLife__Month">{{month(entry.month)}}</div>
+        <div class="treeOfLife__Placeholder"></div>
+        <div class="treeOfLife__Year">{{entry.year}}</div>
+      </div>
+      <div class="treeOfLife__Label">{{entry.label}}</div>
+    </div>
+    <div class="treeOfLife__Connector" *ngIf="entry.private">
+      <div class="treeOfLife__Link"></div>
+      <div class="treeOfLife__Icon treeOfLife__Icon_Left">
+        <i class="treeOfLife__FA fa {{entry.icon}}"></i>
+      </div>
+    </div>
+  </div>
+</div>

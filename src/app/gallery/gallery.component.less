@@ -1,0 +1,38 @@
+@import '../../styles.less';
+@fontSize: 16px;
+.gallery {
+    padding: @padding 0;
+    &__Navigation {
+        margin-bottom: @fontSize;
+    }
+    &__Dropdown {
+        font-size: @fontSize;
+        width: 100%;
+        height: 34px;
+        @media @tablet {
+            display: none;
+        }
+    }
+    &__List {
+        display: none;
+        @media @tablet {
+            display: flex;
+            justify-content: space-around;
+        }
+        @media @desktop {
+            font-size: @fontSize * 1.5;
+        }
+    }
+    &__ListItem {
+        cursor: pointer;
+        color: @color0;
+        padding: 2px 3px;
+        &:hover {
+            color: @color4;
+            background: @color1;
+        }
+        &_Selected {
+            text-decoration: underline;
+        }
+    }
+}

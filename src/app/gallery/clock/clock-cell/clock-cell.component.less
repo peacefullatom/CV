@@ -1,0 +1,37 @@
+@import '../../../../styles.less';
+@_size: 24px;
+@_color: @color0;
+@_width: 1px;
+@_margin: 3px;
+@_tablet: 1.5;
+@_desktop: 2;
+.clockCell {
+    width: @_size;
+    height: @_size;
+    margin: @_margin;
+    border-radius: 4px;
+    border-left-color: @_color;
+    border-left-style: solid;
+    border-left-width: @_width;
+    border-top-color: @_color;
+    border-top-style: solid;
+    border-top-width: @_width;
+    box-shadow: 1px 1px 1px 1px @_color;
+    transition: background .5s;
+    @media @tablet {
+        width: @_size * @_tablet;
+        height: @_size * @_tablet;
+        margin: @_margin * @_tablet;
+    }
+    @media @desktop {
+        width: @_size * @_desktop;
+        height: @_size * @_desktop;
+        margin: @_margin * @_desktop;
+    }
+    &_Hollow {
+        background-color: @colorDefault;
+    }
+    &_Full {
+        background-color: @color2;
+    }
+}

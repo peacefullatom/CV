@@ -1,0 +1,7 @@
+<div class="clock">
+  <div *ngFor="let block of blocks" class="clock__Block">
+    <div *ngFor="let column of columns" class="clock__Column">
+      <app-clock-cell *ngFor="let cell of cells" name="cell{{position(block,column,cell)}}" [state]="now[position(block,column,cell)]"></app-clock-cell>
+    </div>
+  </div>
+</div>

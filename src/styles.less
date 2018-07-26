@@ -5,7 +5,14 @@
 @color4: #CDE1F8;
 @colorDefault: #FFFFFF;
 @padding: 10px;
-@defaultFontFamily: "segoe ui", "lucida sans unicode", "lucida grande", lucida, sans-serif;
+@defaultFontFamily: "segoe ui",
+"lucida sans unicode",
+"lucida grande",
+lucida,
+sans-serif;
+@tablet: (min-width:768px);
+@desktop: (min-width:1024px);
+@ultra:(min-width:2048px);
 // default styles
 body {
     margin: 0;
@@ -16,9 +23,8 @@ body {
 a {
     color: @color0;
     padding: 2px 3px;
-}
-
-a:hover {
-    color: @color4;
-    background: @color1;
+    &:hover {
+        color: @color4;
+        background: @color1;
+    }
 }

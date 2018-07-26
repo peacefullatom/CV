@@ -1,0 +1,23 @@
+@import '../../../styles.less';
+@_margin: 3px;
+@_tablet: 1.5;
+@_desktop: 2;
+.clock {
+    display: flex;
+    justify-content: center;
+    &__Block {
+        display: flex;
+        flex-direction: row;
+        margin: 0 @_margin;
+        @media @tablet {
+            margin: 0 @_margin * @_tablet;
+        }
+        @media @desktop {
+            margin: 0 @_margin * @_desktop;
+        }
+    }
+    &__Column {
+        display: flex;
+        flex-direction: column;
+    }
+}

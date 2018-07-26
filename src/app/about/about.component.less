@@ -1,44 +1,43 @@
 @import '../../styles.less';
-// mobile
+@_width: 16px;
+@_height: 9px;
+@_mobile: 17px;
+@_tablet: @_mobile+2;
+@_desktop: @_tablet+2;
+.about_Large {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .about {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.about__Photo {
-    width: 272px; // 16*17
-    height: 153px; // 9*17
-    background-color: red;
-}
-
-.about__Text {
-    flex: 1;
-}
-
-// tablet
-@media only screen and(min-width:600px) {
-    .about {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+    @media @tablet {
+        .about_Large();
     }
-    .about__Photo {
-        width: 304px; // 16*19
-        height: 171px; // 9*19
-        margin-right: @padding;
+    @media @desktop {
+        .about_Large();
     }
-}
-
-// desktop
-@media only screen and (min-width: 768px) {
-    .about {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+    &__Photo {
+        width: @_width * @_mobile;
+        height: @_height * @_mobile;
+        background: url('../img/avatar.jpg');
+        background-size: contain;
+        @media @tablet {
+            width: @_width * @_tablet;
+            height: @_height * @_tablet;
+            margin-top: 22px;
+            margin-right: @padding;
+        }
+        @media @desktop {
+            width: @_width * @_desktop;
+            height: @_height * @_desktop;
+            margin-right: 24px;
+        }
     }
-    .about__Photo{
-        width: 336px; // 16*21
-        height: 189px; // 9*21
+    &__Text {
+        flex: 1;
     }
 }

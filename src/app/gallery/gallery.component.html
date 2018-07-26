@@ -1,2 +1,15 @@
-<div *appWrapper="title;folded:folded">
+<div class="gallery" *appWrapper="title;folded:folded">
+    <div class="gallery__Navigation">
+        <select class="gallery__Dropdown" (change)="select($event.target.value)">
+            <option *ngFor="let item of list;let position=index" [value]="position" [selected]="selection===position">{{item}}</option>
+        </select>
+        <div class="gallery__List">
+            <div class="gallery__ListItem" [ngClass]="selection===position?'gallery__ListItem_Selected':''" *ngFor="let item of list;let position=index"
+                (click)="select(position)">{{item}}</div>
+        </div>
+    </div>
+    <div [ngSwitch]="selection">
+        <app-clock *ngSwitchCase="0"></app-clock>
+        <app-tree-of-life *ngSwitchCase="1"></app-tree-of-life>
+    </div>
 </div>
