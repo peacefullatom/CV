@@ -1,14 +1,15 @@
 <div class="wrapperComponent">
   <div class="wrapperComponent__Line"></div>
   <div class="wrapperComponent__Wrapper">
-    <div class="wrapperComponent__Title">
-      <div class="wrapperComponent__Placeholder"></div>
+    <div class="wrapperComponent__Title" (click)="toggle()" [ngClass]="!visible?'wrapperComponent__Title_Full':''">
       <div class="wrapperComponent__Text">
         {{title}}
       </div>
-      <div class="wrapperComponent__Button"></div>
+      <div class="wrapperComponent__Button" [ngClass]="visible?'wrapperComponent__Button_Fold':''">
+        <div class="wrapperComponent__Bar"></div>
+      </div>
     </div>
-    <div class="wrapperComponent__Content">
+    <div class="wrapperComponent__Content" *ngIf="visible">
       <ng-container *ngTemplateOutlet="template"></ng-container>
     </div>
   </div>

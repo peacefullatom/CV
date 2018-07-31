@@ -9,11 +9,12 @@ export class WrapperComponent implements OnInit {
 
   @Input() template: TemplateRef<any>;
   @Input() title: string;
-  @Input() folded: boolean;
+  @Input() visible: boolean;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
+  toggle = () => this.visible = !this.visible;
 
 }

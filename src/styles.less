@@ -12,12 +12,15 @@ lucida,
 sans-serif;
 @tablet: (min-width:768px);
 @desktop: (min-width:1024px);
-@ultra:(min-width:2048px);
+@ultra: (min-width:2048px);
 // default styles
 body {
     margin: 0;
     padding: 0;
     font-family: @defaultFontFamily;
+    @media @desktop {
+        margin-top: @padding;
+    }
 }
 
 a {

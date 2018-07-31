@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as CONST from '../Const';
 
 export interface Education {
@@ -17,7 +17,7 @@ export interface Education {
 export class EducationComponent implements OnInit {
 
   title = "education";
-  folded = "false";
+  @Input() visible: boolean;
   education: Education[] = [
     {
       name: "Permskiy Gosudarstvenniy Tekhnologicheskiy Universitet",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-gallery',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class GalleryComponent implements OnInit {
 
   title = "gallery";
-  folded = "false";
+  @Input() visible: boolean;
 
   list = ["binary clock", "tree of life"];
   selection = 0;

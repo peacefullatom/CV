@@ -1,0 +1,88 @@
+@import '../../styles.less';
+.skills {
+    padding: @padding 0;
+    &__Item {
+        display: flex;
+        flex-basis: 100%;
+        line-height: 26px;
+        font-size: 16px;
+        background: @color4;
+        transition: background .5s;
+        &:nth-child(2n+1) {
+            background: @colorDefault;
+            transition: background .5s;
+        }
+        &:hover {
+            background: @color3;
+            transition: background .5s;
+        }
+        &_Inactive,
+        &_Inactive:hover {
+            background: @colorDefault;
+        }
+    }
+    &__Label {
+        color: @color1;
+        flex-basis: 30%;
+        padding-left: @padding;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media @tablet {
+            flex-basis: 20%
+        }
+        @media @desktop {
+            flex-basis: 10%
+        }
+    }
+    &__Bar {
+        position: relative;
+        display: flex;
+        flex-basis: 70%;
+        align-items: center;
+        @media @tablet {
+            flex-basis: 80%
+        }
+        @media @desktop {
+            flex-basis: 90%
+        }
+    }
+    &__Value {
+        height: 50%;
+        background: @color1;
+    }
+    &__Marks {
+        position: absolute;
+        display: flex;
+        flex-basis: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+    &__Mark {
+        height: 100%;
+        flex-basis: 20%;
+        border-left: 1px solid @color0;
+        box-sizing: border-box;
+    }
+    &__Legend {
+        color: @color0;
+        font-size: 10px;
+        flex-basis: 20%;
+        @media @tablet {
+            font-size: 12px;
+        }
+        @media @desktop {
+            font-size: 14px;
+        }
+    }
+}
+
+.skills__Item:hover .skills__Label {
+    color: @colorDefault;
+}
+
+.skills__Item:hover .skills__Value {
+    background: @colorDefault;
+}

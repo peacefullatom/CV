@@ -6,31 +6,33 @@ import { WrapperComponent } from './wrapper/wrapper.component';
 })
 export class WrapperDirective implements OnInit {
 
-  private _title: string;
+  title: string;
+  visible: boolean;
+
   @Input() set appWrapper(value: string) {
-    this._title = value;
+    this.title = value;
   };
 
-  private _folded: boolean;
-  @Input() set appWrapperFolded(value: boolean) {
-    this._folded = value;
+  @Input() set appWrapperVisible(value: boolean) {
+    this.visible = value;
   }
 
-  private WrapperContainer: ComponentRef<WrapperComponent>;
+  WrapperContainer: ComponentRef<WrapperComponent>;
 
   constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private _templateRef: TemplateRef<any>,
+    private _viewContainer: ViewContainerRef,
+    private _componentFactoryResolver: ComponentFactoryResolver
   ) {
   }
 
   ngOnInit() {
-    const containerFactory = this.componentFactoryResolver.resolveComponentFactory(WrapperComponent);
-    this.WrapperContainer = this.viewContainer.createComponent(containerFactory);
-    this.WrapperContainer.instance.template = this.templateRef;
-    this.WrapperContainer.instance.title = this._title;
-    this.WrapperContainer.instance.folded = this._folded;
+    let containerFactory = this._componentFactoryResolver.resolveComponentFactory(WrapperComponent);
+
+    this.WrapperContainer = this._viewContainer.createComponent(containerFactory);
+    this.WrapperContainer.instance.title = this.title;
+    this.WrapperContainer.instance.visible = this.visible;
+    this.WrapperContainer.instance.template = this._templateRef;
   }
 
 }

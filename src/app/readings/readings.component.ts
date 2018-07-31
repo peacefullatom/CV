@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as CONST from '../Const';
 
 export interface Readings {
@@ -15,7 +15,7 @@ export interface Readings {
 export class ReadingsComponent implements OnInit {
 
   title = "readings";
-  folded = "false";
+  @Input() visible: boolean;
   readings: Readings[] = [
     {
       name: "Rangle's Angular Training Book",

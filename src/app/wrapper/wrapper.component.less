@@ -1,12 +1,16 @@
 @import '../../styles.less';
+@_buttonSize: 18px;
+@_barSize: 3px;
+@_barMargin: (@_buttonSize - @_barSize) / 2;
 .wrapperComponent {
     display: flex;
+    min-width: 280px;
     padding: @padding;
     user-select: none;
     flex-basis: 100%;
     @media @desktop {
         flex-direction: column;
-        padding: 0 10px;
+        padding: 0 @padding;
     }
     &__Line {
         display: none;
@@ -18,7 +22,7 @@
     }
     &__Wrapper {
         display: flex;
-        flex: 1;
+        flex-basis: 100%;
         flex-direction: column;
         @media @desktop {
             flex-direction: row;
@@ -26,20 +30,56 @@
     }
     &__Title {
         display: flex;
+        height: 22px;
+        line-height: 22px;
         padding: @padding 0;
         color: @color0;
         background-color: @color4;
         text-transform: uppercase;
         font-weight: 500;
-        @media @tablet{}
+        justify-content: space-between;
+        cursor: pointer;
         @media @desktop {
-            flex: .2;
+            flex-basis: 20%;
+            height: initial;
             padding-top: 22px;
-            margin: 0 10px 0 0;
+            margin: 0 @padding 0 0;
+            &_Full {
+                flex-basis: 100%;
+                margin: 0;
+                padding: @padding 0;
+            }
         }
     }
-    &__Placeholder {
-        width: 10px;
+    &__Text {
+        margin-left: @padding;
+        color: @color0;
+    }
+    &__Button {
+        margin: 2px;
+        position: relative;
+        width: @_buttonSize;
+        height: @_buttonSize;
+        margin-right: @padding;
+        @media @desktop {
+            display: none;
+        }
+    }
+    &__Bar {
+        width: @_buttonSize;
+        height: @_barSize;
+        margin-top: @_barMargin;
+        background: @color0;
+        &::before {
+            position: absolute;
+            display: block;
+            top: 0;
+            content: "";
+            width: @_barSize;
+            height: @_buttonSize;
+            margin-left: @_barMargin;
+            background-color: @color0;
+        }
     }
     &__Content {
         padding: @padding 0;
@@ -48,4 +88,27 @@
             padding: 0;
         }
     }
+}
+
+.wrapperComponent__Button_Fold .wrapperComponent__Bar::before {
+    display: none;
+}
+
+@media @desktop {
+    .wrapperComponent__Title_Full .wrapperComponent__Button {
+        display: block;
+    }
+}
+
+.wrapperComponent__Title:hover {
+    background: @color3;
+}
+
+.wrapperComponent__Title:hover .wrapperComponent__Text {
+    color: @colorDefault;
+}
+
+.wrapperComponent__Title:hover .wrapperComponent__Bar,
+.wrapperComponent__Title:hover .wrapperComponent__Bar::before {
+    background: @colorDefault;
 }

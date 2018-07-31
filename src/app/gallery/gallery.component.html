@@ -1,4 +1,4 @@
-<div class="gallery" *appWrapper="title;folded:folded">
+<div class="gallery" *appWrapper="title;visible:visible">
     <div class="gallery__Navigation">
         <select class="gallery__Dropdown" (change)="select($event.target.value)">
             <option *ngFor="let item of list;let position=index" [value]="position" [selected]="selection===position">{{item}}</option>

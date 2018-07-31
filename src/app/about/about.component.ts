@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-const dob = new Date("12.09.1981");
+const DOB = new Date("12.09.1981");
 
 @Component({
   selector: 'app-about',
@@ -10,14 +10,14 @@ const dob = new Date("12.09.1981");
 export class AboutComponent implements OnInit {
 
   title = "about";
-  folded = "false";
+  @Input() visible: boolean;
   age = 0;
 
   constructor() { }
 
   ngOnInit() {
     let now = new Date();
-    let span = now.getTime() - dob.getTime();
+    let span = now.getTime() - DOB.getTime();
     this.age = Math.floor(span / (1e3 * 60 * 60 * 24 * 365));
   }
 

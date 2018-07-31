@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as CONST from '../Const';
 
 export interface Experience {
@@ -17,7 +17,7 @@ export interface Experience {
 export class ExperienceComponent implements OnInit {
 
   title = "experience";
-  folded = "false";
+  @Input() visible: boolean;
   experiences: Experience[] = [
     {
       role: "Senior front-end developer",
@@ -102,7 +102,7 @@ export class ExperienceComponent implements OnInit {
 
   previousDate(index: number) {
     if (!index)
-      return "Current";
+      return "Present";
 
     if (index <= this.experiences.length - 1)
       return this.convertDate(this.experiences[index - 1].start);
