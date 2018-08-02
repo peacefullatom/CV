@@ -3,10 +3,12 @@
     <div class="education__Date">{{convertDate(item.start)}} - {{convertDate(item.end)}}</div>
     <div class="education__Info">
       <div class="education__Name">{{item.name}}</div>
-      <span *ngIf="item.link">&nbsp;-&nbsp;</span>
-      <div class="education__Link">
-        <a href={{item.link}} target="_blank">{{convertLink(item.link)}}</a>
-      </div>
+      <ng-container *ngIf="item.link">
+        <div class="education__Splitter">-</div>
+        <div class="education__Link">
+          <a href={{item.link}} target="_blank">{{convertLink(item.link)}}</a>
+        </div>
+      </ng-container>
     </div>
     <div class="education__Description">{{item.description}}</div>
   </div>

@@ -10,15 +10,14 @@
     flex-basis: 100%;
     @media @desktop {
         flex-direction: column;
-        padding: 0 @padding;
+        padding: 0;
+        margin: @padding;
+        border: 2px solid @color0;
+        border-left: none;
+        border-right: none;
     }
     &__Line {
         display: none;
-        @media @desktop {
-            display: initial;
-            height: 2px;
-            background-color: @color0;
-        }
     }
     &__Wrapper {
         display: flex;
@@ -33,12 +32,13 @@
         height: 22px;
         line-height: 22px;
         padding: @padding 0;
-        color: @color0;
-        background-color: @color4;
+        color: @colorDefault;
+        background-color: @color0;
         text-transform: uppercase;
         font-weight: 500;
         justify-content: space-between;
         cursor: pointer;
+        transition: background .5s;
         @media @desktop {
             flex-basis: 20%;
             height: initial;
@@ -53,7 +53,6 @@
     }
     &__Text {
         margin-left: @padding;
-        color: @color0;
     }
     &__Button {
         margin: 2px;
@@ -69,7 +68,7 @@
         width: @_buttonSize;
         height: @_barSize;
         margin-top: @_barMargin;
-        background: @color0;
+        background: @colorDefault;
         &::before {
             position: absolute;
             display: block;
@@ -78,7 +77,7 @@
             width: @_barSize;
             height: @_buttonSize;
             margin-left: @_barMargin;
-            background-color: @color0;
+            background-color: @colorDefault;
         }
     }
     &__Content {
@@ -105,10 +104,10 @@
 }
 
 .wrapperComponent__Title:hover .wrapperComponent__Text {
-    color: @colorDefault;
+    color: @color0;
 }
 
 .wrapperComponent__Title:hover .wrapperComponent__Bar,
 .wrapperComponent__Title:hover .wrapperComponent__Bar::before {
-    background: @colorDefault;
+    background: @color0;
 }

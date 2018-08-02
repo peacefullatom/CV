@@ -41,7 +41,7 @@ export class TechnicalSkillsComponent implements OnInit {
     { name: CONST.JQ, start: new Date("12.01.2012") },
     { name: CONST.A1X, start: new Date("12.01.2016") },
     { name: CONST.A2X, start: new Date("02.01.2017") },
-    { name: CONST.R, start: new Date("11.01.2017") },
+    { name: CONST.R, start: new Date("08.01.2017") },
     { name: CONST.RN, start: new Date("11.01.2017") },
     { name: CONST.RX, start: new Date("11.01.2017") },
     { name: CONST.SQL, start: new Date("03.01.2007"), end: new Date("04.01.2017") },

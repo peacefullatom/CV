@@ -1,36 +1,47 @@
 @import '../../styles.less';
-@border: 8px;
 .education {
     position: relative;
-    padding-bottom: @border;
-    margin-bottom: 16px;
-    border-bottom: 2px solid @color0;
+    padding-bottom: @padding;
+    margin-bottom: @padding * 2;
+    border-bottom: 2px solid #CDE1F8;
     &:last-child {
-        border-bottom: none;
+        margin-bottom: @padding;
     }
     &:first-child {
-        margin-top: 16px;
+        margin-top: @padding;
     }
     &__Date {
         position: absolute;
-        right: 0;
+        right: @padding;
         font-size: 14px;
+        color: #2E65A7;
+        margin-top: 4px;
+        font-weight: 500;
     }
     &__Info {
         display: flex;
-        flex-direction: row;
-        padding-top: 22px;
+        flex-direction: column;
+        padding: 22px 0 4px @padding;
+        color: #4C82C2;
+        background: #CDE1F8;
+        font-weight: 700;
+        @media @tablet {
+            flex-direction: row;
+        }
     }
     &__Name,
     &__Link {
         font-size: 16px;
     }
-    &__Name {
-        font-weight: bold;
-        color: @color0;
+    &__Splitter {
+        display: none;
+        @media @tablet {
+            display: block;
+            padding: 0 @padding;
+        }
     }
     &__Description {
-        padding-top: @border;
+        padding-top: @padding;
         font-size: 18px;
     }
 }
