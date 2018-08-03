@@ -15,7 +15,18 @@
     }
     &__Copyright {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         line-height: 42px;
+    }
+    &__Print {
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        color: @color0;
+        cursor: pointer;
+        &:hover {
+            color: @color4;
+            background: @color1;
+        }
     }
 }

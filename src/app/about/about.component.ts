@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-const DOB = new Date("12.09.1981");
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-about',
@@ -11,14 +10,9 @@ export class AboutComponent implements OnInit {
 
   title = "about";
   @Input() visible: boolean;
-  age = 0;
 
-  constructor() { }
+  constructor(public service: CommonService) { }
 
-  ngOnInit() {
-    let now = new Date();
-    let span = now.getTime() - DOB.getTime();
-    this.age = Math.floor(span / (1e3 * 60 * 60 * 24 * 365));
-  }
+  ngOnInit() { }
 
 }

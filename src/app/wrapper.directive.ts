@@ -23,8 +23,7 @@ export class WrapperDirective implements OnInit {
     private _templateRef: TemplateRef<any>,
     private _viewContainer: ViewContainerRef,
     private _componentFactoryResolver: ComponentFactoryResolver
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     let containerFactory = this._componentFactoryResolver.resolveComponentFactory(WrapperComponent);

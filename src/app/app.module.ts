@@ -14,6 +14,7 @@ import { ClockComponent } from './gallery/clock/clock.component';
 import { ClockCellComponent } from './gallery/clock/clock-cell/clock-cell.component';
 import { TreeOfLifeComponent } from './gallery/tree-of-life/tree-of-life.component';
 import { FooterComponent } from './footer/footer.component';
+import { PrintableComponent } from './printable/printable.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     ClockComponent,
     ClockCellComponent,
     TreeOfLifeComponent,
-    FooterComponent
+    FooterComponent,
+    PrintableComponent
   ],
   imports: [
     BrowserModule

@@ -1,0 +1,94 @@
+@sheet_width: 210mm;
+@sheet_height: 297mm;
+@column_left: 118.4mm;
+@column_right: 46.2mm;
+@padding_horizontal: 15mm;
+@padding_vertical: 10mm;
+@font_small: 12px;
+@font_normal: 14px;
+@font_large: 36px;
+@margin: 6px;
+.sheet {
+    display: flex;
+    flex-direction: column;
+    width: @sheet_width;
+    height: @sheet_height;
+    padding: @padding_vertical @padding_horizontal;
+    box-sizing: border-box;
+    color: #000000;
+    &__Header,
+    &__Body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__Header {
+        height: @column_right / 2;
+    }
+    &_Left,
+    &_Right {
+        overflow: hidden;
+    }
+    &_Left {
+        width: @column_left;
+    }
+    &_Right {
+        width: @column_right;
+    }
+    &__Title {
+        &Name {
+            font-size: @font_large;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            margin-bottom: @margin * 2;
+        }
+        &About {
+            font-size: @font_small;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    }
+    &__Contacts {
+        font-size: @font_small;
+    }
+}
+
+.block {
+    flex-direction: column;
+    margin-bottom: @margin * 4;
+    &__Title {
+        margin-bottom: @margin * 2;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    &__Body {
+        flex-direction: column;
+    }
+}
+
+.entry {
+    margin: @margin * 2 0;
+    &_Bold {
+        font-weight: 500;
+    }
+    &_Italic {
+        font-style: italic;
+    }
+    &__Title {
+        display: -webkit-box;
+        font-size: @font_normal;
+        &>span {
+            margin-right: @margin;
+        }
+    }
+    &__Span {
+        font-size: @font_small;
+        line-height: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, .5);
+    }
+    &__Data {
+        font-size: @font_small;
+    }
+}

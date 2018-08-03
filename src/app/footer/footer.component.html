@@ -1,4 +1,12 @@
 <div class="footer">
   <div class="footer__Line"></div>
-  <div class="footer__Copyright">ScipioS&nbsp;&copy;&nbsp;{{getYear()}}</div>
+  <div class="footer__Copyright">
+    ScipioS&nbsp;&copy;&nbsp;{{getYear()}}
+    <div class="footer__Print" title="print" (click)="print()">
+      <i class="fa fa-print"></i>
+    </div>
+  </div>
 </div>
+<ng-template #printable>
+  <app-printable></app-printable>
+</ng-template>

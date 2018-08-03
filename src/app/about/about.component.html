@@ -3,26 +3,40 @@
         <div class="about__Photo"></div>
         <div class="about__Text">
             <p>Hello!</p>
-            <p>My name is Yuriy Markov.</p>
-            <p>Age: {{age}}.</p>
-            <p>Location: Perm, Russian Federation.</p>
-            <p>Phone:
-                <a href="tel:+79504696434">+79504696434</a>.</p>
-            <p>Messengers:
-                <a href="skype:y.i.markov?chat">Skype</a>,
-                <a href="tg://resolve?domain=@yuriy_markov">Telegram</a>,
-                <a href="whatsapp://send?phone=79504696434">WhatsApp</a>,
-                <a href="viber://chat?number+79504696434">Viber</a>.
+            <p>
+                I'm Yuriy Markov from {{service.getLocation()}}. I'm {{service.getAge()}} years old.
             </p>
-            <p>Email:
-                <a href="mailto:peacefullatom@gmail.com">peacefullatom@gmail.com</a>
+            <ng-container *ngIf="service.phones.length">
+                <p>Phone:
+                    <ng-container *ngFor="let phone of service.phones;let last=last;">
+                        <a href="{{phone.HREF}}">{{phone.value}}</a>{{!last?',':'.'}}
+                    </ng-container>
+                </p>
+            </ng-container>
+            <p>
             </p>
-            <p>Around the web:
-                <a href="https://github.com/peacefullatom" target="_blank">GitHub</a>,
-                <a href="https://www.instagram.com/peacefullatom/" target="_blank">Instagram</a>,
-                <a href="https://twitter.com/markov_yuriy" target="_blank">Twitter</a>,
-                <a href="https://fb.me/yurij.markov.9" target="_blank">Facebook</a>.
-            </p>
+            <ng-container *ngIf="service.messengers.length">
+                <p>Messengers:
+                    <ng-container *ngFor="let messenger of service.messengers;let last=last;">
+                        <a href="{{messenger.HREF}}">
+                            <b>{{messenger.messenger}}</b> ({{messenger.value}})</a>{{!last?',':'.'}}
+                    </ng-container>
+                </p>
+            </ng-container>
+            <ng-container *ngIf="service.emails.length">
+                <p>Email:
+                    <ng-container *ngFor="let email of service.emails;let last=last;">
+                        <a href="{{email.HREF}}">{{email.value}}</a>{{!last?',':'.'}}
+                    </ng-container>
+                </p>
+            </ng-container>
+            <ng-container *ngIf="service.web.length">
+                <p>Around the web:
+                    <ng-container *ngFor="let link of service.web;let last=last;">
+                        <a href="{{link.HREF}}" target="_blank">{{link.value}}</a>{{!last?',':'.'}}
+                    </ng-container>
+                </p>
+            </ng-container>
             <p>I'm looking for an interesting job as well as a new experience :)</p>
         </div>
     </div>

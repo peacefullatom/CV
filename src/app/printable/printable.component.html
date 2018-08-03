@@ -1,0 +1,75 @@
+<div class="sheet">
+  <div class="sheet__Header">
+    <div class="sheet__Title sheet_Left">
+      <div class="sheet__TitleName">Yuriy Markov</div>
+      <div class="sheet__TitleAbout">Web developer</div>
+    </div>
+    <div class="sheet__Contacts sheet_Right">
+      <div>Perm, Russian Federaion</div>
+      <div>+79504696434</div>
+      <div>peacefullatom@gmail.com</div>
+    </div>
+  </div>
+  <div class="sheet__Body">
+    <div class="sheet_Left">
+      <ng-container *ngIf="service.experiences.length">
+        <div class="block">
+          <div class="block__Title">experience</div>
+          <div class="block__Body">
+            <div class="entry" *ngFor="let entry of service.experiences;let i=index;">
+              <div class="entry__Title">
+                <span class="entry__TitleMain entry_Bold">{{entry.company}},</span>
+                <span class="entry__TitleSecondary">{{entry.location}}</span>
+                <span>&minus;</span>
+                <span class="entry__TitleExtra entry_Italic">{{entry.role}}</span>
+              </div>
+              <div class="entry__Span">
+                {{convertDate(entry.start)}} - {{previousDate(i)}}
+              </div>
+              <div class="entry__Data">{{entry.description}}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="service.education.length">
+        <div class="block">
+          <div class="block__Title">education</div>
+          <div class="block__Body">
+            <div class="entry" *ngFor="let entry of service.education;">
+              <div class="entry__Title">
+                <span class="entry__TitleMain entry_Bold">{{entry.name}},</span>
+                <span class="entry__TitleSecondary">{{entry.location}}</span>
+              </div>
+              <div class="entry__Span">
+                {{convertDate(entry.start)}} - {{convertDate(entry.end)}}
+              </div>
+              <div class="entry__Data">{{entry.description}}</div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="sheet_Right">
+      <ng-container *ngIf="service.skills.length">
+        <div class="block">
+          <div class="block__Title">skills</div>
+          <div class="block__Body">
+            <div class="entry" *ngFor="let entry of service.skills;">
+              <div class="entry__Data entry_Bold"> {{entry.name}} </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="service.languages.length">
+        <div class="block">
+          <div class="block__Title">languages</div>
+          <div class="block__Body">
+            <div class="entry" *ngFor="let entry of service.languages;">
+              <div class="entry__Data entry_Bold"> {{entry}} </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
