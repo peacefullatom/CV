@@ -12,11 +12,11 @@
   </div>
   <div class="sheet__Body">
     <div class="sheet_Left">
-      <ng-container *ngIf="service.experiences.length">
+      <ng-container *ngIf="experiences.length">
         <div class="block">
           <div class="block__Title">experience</div>
           <div class="block__Body">
-            <div class="entry" *ngFor="let entry of service.experiences;let i=index;">
+            <div class="entry" *ngFor="let entry of experiences;let i=index;">
               <div class="entry__Title">
                 <span class="entry__TitleMain entry_Bold">{{entry.company}},</span>
                 <span class="entry__TitleSecondary">{{entry.location}}</span>
@@ -31,11 +31,11 @@
           </div>
         </div>
       </ng-container>
-      <ng-container *ngIf="service.education.length">
+      <ng-container *ngIf="education.length">
         <div class="block">
           <div class="block__Title">education</div>
           <div class="block__Body">
-            <div class="entry" *ngFor="let entry of service.education;">
+            <div class="entry" *ngFor="let entry of education;">
               <div class="entry__Title">
                 <span class="entry__TitleMain entry_Bold">{{entry.name}},</span>
                 <span class="entry__TitleSecondary">{{entry.location}}</span>
@@ -50,21 +50,21 @@
       </ng-container>
     </div>
     <div class="sheet_Right">
-      <ng-container *ngIf="service.skills.length">
+      <ng-container *ngIf="skills.length">
         <div class="block">
           <div class="block__Title">skills</div>
           <div class="block__Body">
-            <div class="entry" *ngFor="let entry of service.skills;">
+            <div class="entry" *ngFor="let entry of skills;">
               <div class="entry__Data entry_Bold"> {{entry.name}} </div>
             </div>
           </div>
         </div>
       </ng-container>
-      <ng-container *ngIf="service.languages.length">
+      <ng-container *ngIf="languages.length">
         <div class="block">
           <div class="block__Title">languages</div>
           <div class="block__Body">
-            <div class="entry" *ngFor="let entry of service.languages;">
+            <div class="entry" *ngFor="let entry of languages;">
               <div class="entry__Data entry_Bold"> {{entry}} </div>
             </div>
           </div>

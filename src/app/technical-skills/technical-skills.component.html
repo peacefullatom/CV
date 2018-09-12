@@ -8,16 +8,18 @@
         </div>
       </div>
     </div>
-    <div class="skills__Item" *ngFor="let skill of skills">
-      <div class="skills__Label" title="{{skill.name}}">{{skill.name}}</div>
-      <div class="skills__Bar" title="{{getSpan(skill.start,skill.end)}}">
-        <div class="skills__Value" [ngStyle]="{'flex-basis':position(skill.start.getTime())+'%'}"></div>
-        <div class="skills__Marks">
-          <div *ngFor="let mark of marks" class="skills__Mark">
+    <ng-container *ngIf="skills.length">
+      <div class="skills__Item" *ngFor="let skill of skills">
+        <div class="skills__Label" title="{{skill.name}}">{{skill.name}}</div>
+        <div class="skills__Bar" title="{{getSpan(skill.start,skill.end)}}">
+          <div class="skills__Value" [ngStyle]="{'flex-basis':position(skill.start.getTime())+'%'}"></div>
+          <div class="skills__Marks">
+            <div *ngFor="let mark of marks" class="skills__Mark">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
     <div class="skills__Item skills__Item_Inactive">
       <div class="skills__Label">&nbsp;</div>
       <div class="skills__Bar">

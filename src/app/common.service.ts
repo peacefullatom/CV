@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as DATA from './Data';
+import { HttpClient } from '@angular/common/http';
 import * as CONST from './Const';
 
 @Injectable({
@@ -7,24 +7,32 @@ import * as CONST from './Const';
 })
 export class CommonService {
 
-  phones = DATA.PHONES;
-  messengers = DATA.MESSENGERS;
-  emails = DATA.EMAILS;
-  web = DATA.WEB;
-  skills = DATA.SKILLS;
-  experiences = DATA.EXPERIENCES;
-  education = DATA.EDUCATION;
-  readings = DATA.READINGS;
-  languages = DATA.LANGUAGES;
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAge = () => {
     const now = new Date();
-    const span = now.getTime() - DATA.DOB.getTime();
+    const span = now.getTime() - CONST.DOB.getTime();
     return Math.floor(span / CONST.YEAR);
   }
 
-  getLocation = () => (DATA.LOCATION);
+  getLocation = () => (CONST.LOCATION);
+
+  getPhones = () => (this.http.get('phones'));
+
+  getMessengers = () => (this.http.get('messengers'));
+
+  getEmails = () => (this.http.get('emails'));
+
+  getWeb = () => (this.http.get('web'));
+
+  getSkills = () => (this.http.get('skills'));
+
+  getExperience = () => (this.http.get('experiences'));
+
+  getEducation = () => (this.http.get('education'));
+
+  getReadings = () => (this.http.get('readings'));
+
+  getLanguages = () => (this.http.get('languages'));
 
 }
