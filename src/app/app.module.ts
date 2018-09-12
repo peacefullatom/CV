@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { CommonService } from './common.service';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -34,9 +37,10 @@ import { PrintableComponent } from './printable/printable.component';
     PrintableComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent],
   exports: [WrapperComponent, WrapperDirective],
   entryComponents: [WrapperComponent]

@@ -10,18 +10,25 @@ import { Education } from '../Data';
 })
 export class EducationComponent implements OnInit {
 
-  title = "education";
+  title = 'education';
   @Input() visible: boolean;
-  education: Education[];
+  education: Education[] = [];
 
-  constructor(private service: CommonService) {
-    this.education = this.service.education;
+  constructor(private service: CommonService) { }
+
+  ngOnInit() {
+    this.service.getEducation().subscribe(data => {
+      this.education = <Education[]>data || [];
+
+      for (const education of this.education) {
+        education.start = new Date(education.start);
+        education.end = new Date(education.end);
+      }
+    });
   }
 
-  ngOnInit() { }
+  convertDate = (date: Date) => (CONST.CONVERT_DATE(date));
 
-  convertDate = (date: Date) => (CONST.CONVERT_DATE(date))
-
-  convertLink = (link: string) => (CONST.CONVERT_LINK(link))
+  convertLink = (link: string) => (CONST.CONVERT_LINK(link));
 
 }

@@ -10,17 +10,18 @@ import { CommonService } from '../common.service';
 })
 export class ReadingsComponent implements OnInit {
 
-  title = "readings";
+  title = 'readings';
   @Input() visible: boolean;
-  readings: Readings[];
+  readings: Readings[] = [];
 
-  constructor(private service: CommonService) {
-    this.readings=this.service.readings;
-   }
+  constructor(private service: CommonService) { }
 
   ngOnInit() {
+    this.service.getReadings().subscribe(data => {
+      this.readings = <Readings[]>data || [];
+    });
   }
 
-  removePathFromURL = (link: string) => (CONST.CONVERT_LINK(link).split("/").shift())
+  removePathFromURL = (link: string) => (CONST.CONVERT_LINK(link).split('/').shift());
 
 }

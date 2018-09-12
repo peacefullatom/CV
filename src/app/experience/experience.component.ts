@@ -10,26 +10,34 @@ import { CommonService } from '../common.service';
 })
 export class ExperienceComponent implements OnInit {
 
-  title = "experience";
+  title = 'experience';
   @Input() visible: boolean;
-  experiences: Experience[];
+  experiences: Experience[] = [];
 
-  constructor(private service: CommonService) {
-    this.experiences = this.service.experiences;
+  constructor(private service: CommonService) { }
+
+  ngOnInit() {
+    this.service.getExperience().subscribe(data => {
+      this.experiences = <Experience[]>data || [];
+
+      for (const experience of this.experiences) {
+        experience.start = new Date(experience.start);
+      }
+    });
   }
 
-  ngOnInit() { }
-
-  convertDate = (date: Date) => (CONST.CONVERT_DATE(date))
+  convertDate = (date: Date) => (CONST.CONVERT_DATE(date));
 
   previousDate(index: number) {
-    if (!index)
-      return "Present";
+    if (!index) {
+      return 'Present';
+    }
 
-    if (index <= this.experiences.length - 1)
+    if (index <= this.experiences.length - 1) {
       return this.convertDate(this.experiences[index - 1].start);
+    }
   }
 
-  glueTechnologies = (technologies: string[]) => (technologies.join(", "));
+  glueTechnologies = (technologies: string[]) => (technologies.join(', '));
 
 }

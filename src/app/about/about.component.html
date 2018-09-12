@@ -6,33 +6,33 @@
             <p>
                 I'm Yuriy Markov from {{service.getLocation()}}. I'm {{service.getAge()}} years old.
             </p>
-            <ng-container *ngIf="service.phones.length">
+            <ng-container *ngIf="phones.length">
                 <p>Phone:
-                    <ng-container *ngFor="let phone of service.phones;let last=last;">
+                    <ng-container *ngFor="let phone of phones;let last=last;">
                         <a href="{{phone.HREF}}">{{phone.value}}</a>{{!last?',':'.'}}
                     </ng-container>
                 </p>
             </ng-container>
             <p>
             </p>
-            <ng-container *ngIf="service.messengers.length">
+            <ng-container *ngIf="messengers.length">
                 <p>Messengers:
-                    <ng-container *ngFor="let messenger of service.messengers;let last=last;">
+                    <ng-container *ngFor="let messenger of messengers;let last=last;">
                         <a href="{{messenger.HREF}}">
                             <b>{{messenger.messenger}}</b> ({{messenger.value}})</a>{{!last?',':'.'}}
                     </ng-container>
                 </p>
             </ng-container>
-            <ng-container *ngIf="service.emails.length">
+            <ng-container *ngIf="emails.length">
                 <p>Email:
-                    <ng-container *ngFor="let email of service.emails;let last=last;">
+                    <ng-container *ngFor="let email of emails;let last=last;">
                         <a href="{{email.HREF}}">{{email.value}}</a>{{!last?',':'.'}}
                     </ng-container>
                 </p>
             </ng-container>
-            <ng-container *ngIf="service.web.length">
+            <ng-container *ngIf="web.length">
                 <p>Around the web:
-                    <ng-container *ngFor="let link of service.web;let last=last;">
+                    <ng-container *ngFor="let link of web;let last=last;">
                         <a href="{{link.HREF}}" target="_blank">{{link.value}}</a>{{!last?',':'.'}}
                     </ng-container>
                 </p>

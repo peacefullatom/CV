@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "start ng build --aot --prod --watch --source-map && start nodemon server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,6 +24,7 @@
     "core-js": "^2.5.4",
     "eslint": "^5.4.0",
     "less": "^3.7.1",
+    "mongoose": "^5.2.13",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

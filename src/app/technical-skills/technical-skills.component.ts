@@ -9,10 +9,10 @@ import { Skill } from '../Data';
   styleUrls: ['./technical-skills.component.less']
 })
 export class TechnicalSkillsComponent implements OnInit {
-
-  title = "technical skills";
-  @Input() visible: boolean;
-  skills: Skill[];
+  title = 'technical skills';
+  @Input()
+  visible: boolean;
+  skills: Skill[] = [];
   minValue: number;
   maxValue: number;
   minPosition = 0;
@@ -20,62 +20,72 @@ export class TechnicalSkillsComponent implements OnInit {
   scale: number;
   marks = [0, 20, 40, 60, 80];
 
-  constructor(private service: CommonService) {
-    this.skills = this.service.skills || [];
+  constructor(private service: CommonService) { }
 
-    for (let i = 0; i < this.skills.length; i++) {
-      const skill = this.skills[i];
-      const start = skill.start.getTime();
-      const end = skill.end instanceof Date ? skill.end.getTime() : skill.start.getTime();
+  ngOnInit() {
+    this.service.getSkills().subscribe(data => {
+      this.skills = <Skill[]>data || [];
 
-      if (this.minValue === undefined || this.minValue > start)
-        this.minValue = start;
+      for (let i = 0; i < this.skills.length; i++) {
+        const skill = this.skills[i];
 
-      if (this.maxValue === undefined || this.maxValue < end)
-        this.maxValue = end;
-    }
+        skill.start = new Date(skill.start);
+        skill.end = skill.end ? new Date(skill.end) : skill.end;
 
-    if (this.minValue === undefined || this.maxValue === undefined) {
-      this.minValue = 0;
-      this.maxValue = 100;
-    }
+        const start = skill.start.getTime();
+        const end = skill.end instanceof Date ? skill.end.getTime() : skill.start.getTime();
 
-    this.minValue = Math.log(this.minValue);
-    this.maxValue = Math.log(this.maxValue);
+        if (this.minValue === undefined || this.minValue > start) {
+          this.minValue = start;
+        }
 
-    this.scale = (this.maxValue - this.minValue) / (this.maxPosition - this.minPosition);
+        if (this.maxValue === undefined || this.maxValue < end) {
+          this.maxValue = end;
+        }
+      }
+
+      if (this.minValue === undefined || this.maxValue === undefined) {
+        this.minValue = 0;
+        this.maxValue = 100;
+      }
+
+      this.minValue = Math.log(this.minValue);
+      this.maxValue = Math.log(this.maxValue);
+
+      this.scale = (this.maxValue - this.minValue) / (this.maxPosition - this.minPosition);
+    });
   }
 
-  ngOnInit() { }
+  value = (value: number) => Math.exp((this.maxPosition - value - this.minPosition) * this.scale + this.minValue);
 
-  value = (value: number) => (Math.exp((this.maxPosition - value - this.minPosition) * this.scale + this.minValue));
+  position = (value: number) => this.maxPosition - (Math.log(value) - this.minValue) / this.scale;
 
-  position = (value: number) => (this.maxPosition - (Math.log(value) - this.minValue) / this.scale);
-
-  getMark = (value: number) => (this.getSpan(new Date(this.value(value))));
+  getMark = (value: number) => this.getSpan(new Date(this.value(value)));
 
   getSpan(start: Date, end?: Date) {
-    const calcSpan = (span: number, range: number) => (Math.floor(span / range).toString());
-    const makeMark = (span: string, range: string) => (span + "+ " + range);
+    const calcSpan = (span: number, range: number) =>
+      Math.floor(span / range).toString();
+    const makeMark = (span: string, range: string) => span + '+ ' + range;
     const stamp = start.getTime();
-    const mark = "0";
+    const mark = '0';
 
     if (!isNaN(stamp)) {
-      let span = (end instanceof Date ? end.getTime() : new Date().getTime()) - stamp;
+      const span =
+        (end instanceof Date ? end.getTime() : new Date().getTime()) - stamp;
 
-      if (span < CONST.HOUR)
+      if (span < CONST.HOUR) {
         return makeMark(calcSpan(span, CONST.MINUTE), CONST.MINUTES);
-      else if (span < CONST.DAY)
+      } else if (span < CONST.DAY) {
         return makeMark(calcSpan(span, CONST.HOUR), CONST.HOURS);
-      else if (span < CONST.MONTH)
+      } else if (span < CONST.MONTH) {
         return makeMark(calcSpan(span, CONST.DAY), CONST.DAYS);
-      else if (span < CONST.YEAR)
+      } else if (span < CONST.YEAR) {
         return makeMark(calcSpan(span, CONST.MONTH), CONST.MONTHS);
-      else
+      } else {
         return makeMark(calcSpan(span, CONST.YEAR), CONST.YEARS);
-    }
-    else
+      }
+    } else {
       return makeMark(mark, CONST.MINUTES);
+    }
   }
-
 }
