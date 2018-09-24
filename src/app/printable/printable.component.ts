@@ -14,8 +14,11 @@ export class PrintableComponent implements OnInit {
     education: Education[] = [];
     skills: Skill[] = [];
     languages: string[] = [];
+    link: string;
 
-    constructor(public service: CommonService) { }
+    constructor(public service: CommonService) {
+        this.link = document.location.href;
+    }
 
     ngOnInit() {
         this.service.getExperience().subscribe(data => {
