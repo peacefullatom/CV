@@ -39,3 +39,7 @@ export interface Education extends EntryName, EntryStart, EntryDescription {
 export interface Readings extends EntryName, EntryDescription {
     link: string;
 }
+
+export interface Languages {
+    languages: string[];
+}
