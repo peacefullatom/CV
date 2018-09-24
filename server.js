@@ -11,7 +11,7 @@ const port = process.env.PORT || configGlobal.port;
 const app = express();
 
 mongoose.Promise = Promise;
-mongoose.connect(configDB.db).then(
+mongoose.connect(configDB.db, { useNewUrlParser: true }).then(
     () => {
         console.log('Connected to database');
         console.log('Connection string:');
