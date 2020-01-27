@@ -24,15 +24,20 @@ export class PrintableComponent implements OnInit {
         this.service.getExperience().subscribe(data => {
             this.experiences = <Experience[]>data || [];
 
-            this.experiences.forEach(experience => experience.start = new Date(experience.start)).sort((a,b)={
-              if(a.start.getTime() > b.start.getTime()) {
-                return +1;
-              }
-              if(a.start.getTime() < b.start.getTime()) {
-                return -1;
-              }
-              return 0;
-            });
+            this.experiences
+              .map(experience => ({
+                ...experience,
+                start: new Date(experience.start)
+              }))
+              .sort((a, b) => {
+                if (a.start.getTime() > b.start.getTime()) {
+                  return +1;
+                }
+                if (a.start.getTime() < b.start.getTime()) {
+                  return -1;
+                }
+                return 0;
+              });
         });
 
         this.service.getEducation().subscribe(data => {
