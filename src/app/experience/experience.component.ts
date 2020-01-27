@@ -27,10 +27,10 @@ export class ExperienceComponent implements OnInit {
         }))
         .sort((a, b) => {
           if (a.start.getTime() > b.start.getTime()) {
-            return +1;
+            return -1;
           }
           if (a.start.getTime() < b.start.getTime()) {
-            return -1;
+            return +1;
           }
           return 0;
         });
