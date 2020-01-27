@@ -20,7 +20,7 @@ export class ExperienceComponent implements OnInit {
     this.service.getExperience().subscribe(data => {
       this.experiences = <Experience[]>data || [];
 
-      this.experiences
+      this.experiences = this.experiences
         .map(experience => ({
           ...experience,
           start: new Date(experience.start)
