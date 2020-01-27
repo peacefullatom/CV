@@ -1,36 +1,47 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { CommonService } from '../common.service';
 import * as CONST from '../Const';
 import { Experience } from '../Data';
-import { CommonService } from '../common.service';
 
 @Component({
-  selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.less']
+  selector: "app-experience",
+  templateUrl: "./experience.component.html",
+  styleUrls: ["./experience.component.less"]
 })
 export class ExperienceComponent implements OnInit {
-
-  title = 'experience';
+  title = "experience";
   @Input() visible: boolean;
   experiences: Experience[] = [];
 
-  constructor(private service: CommonService) { }
+  constructor(private service: CommonService) {}
 
   ngOnInit() {
     this.service.getExperience().subscribe(data => {
       this.experiences = <Experience[]>data || [];
 
-      for (const experience of this.experiences) {
-        experience.start = new Date(experience.start);
-      }
+      this.experiences
+        .map(experience => ({
+          ...experience,
+          start: new Date(experience.start)
+        }))
+        .sort((a, b) => {
+          if (a.start.getTime() > b.start.getTime()) {
+            return +1;
+          }
+          if (a.start.getTime() < b.start.getTime()) {
+            return -1;
+          }
+          return 0;
+        });
     });
   }
 
-  convertDate = (date: Date) => (CONST.CONVERT_DATE(date));
+  convertDate = (date: Date) => CONST.CONVERT_DATE(date);
 
   previousDate(index: number) {
     if (!index) {
-      return 'Present';
+      return "Present";
     }
 
     if (index <= this.experiences.length - 1) {
@@ -38,6 +49,5 @@ export class ExperienceComponent implements OnInit {
     }
   }
 
-  glueTechnologies = (technologies: string[]) => (technologies.join(', '));
-
+  glueTechnologies = (technologies: string[]) => technologies.join(", ");
 }
